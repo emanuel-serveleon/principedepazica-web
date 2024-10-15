@@ -4,7 +4,7 @@ import logo from '../assets/logo.svg';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between bg-white px-4 py-2">
+    <header className="fixed flex w-screen items-center justify-between bg-white px-4 py-2">
       <Link href="/">
         <Image
           src={logo}
