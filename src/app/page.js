@@ -14,7 +14,7 @@ export default function Page() {
         <p className="text-center text-2xl">Nacidos del corazón de Dios</p>
       </section>
 
-      <section className="bg-slate-100 py-24">
+      <section className="bg-slate-100 px-12 py-24">
         <h2 className="mb-10 text-center text-4xl font-bold">
           Reuniones semanales
         </h2>
