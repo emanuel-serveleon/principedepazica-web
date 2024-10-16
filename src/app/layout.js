@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Credit from './components/Credit';
 
 export const metadata = {
   title: 'Iglesia Cristiana del Príncipe de Paz',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Credit />
       </body>
     </html>
   );
