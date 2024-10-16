@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Page() {
   return (
     <>
-      <section className="flex h-screen flex-col justify-center bg-slate-200 p-10">
+      <section className="-mt-16 flex h-screen flex-col justify-center bg-slate-200 p-10">
         <h1 className="m-5 text-center text-5xl font-bold">
           Iglesia Cristiana del Príncipe de Paz
         </h1>
