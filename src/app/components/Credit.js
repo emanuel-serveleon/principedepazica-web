@@ -1,6 +1,6 @@
 export default function Credit() {
   return (
-    <div className="bg-black p-1 text-center text-xs text-white">
+    <div className="bg-white p-1 text-center text-xs text-slate-500">
       Desarrollado por{' '}
       <a href="https://github.com/emanuel-serveleon" target="_blank">
         Emanuel Serveleon
