@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'Prédicas | Iglesia Cristiana del Príncipe de Paz',
+};
+
 export default function Page() {
   return (
     <main>

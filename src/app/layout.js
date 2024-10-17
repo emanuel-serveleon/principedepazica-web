@@ -5,6 +5,7 @@ import Credit from './components/Credit';
 
 export const metadata = {
   title: 'Iglesia Cristiana del Príncipe de Paz',
+  description: 'Nacidos del corazón de Dios',
 };
 
 export default function RootLayout({ children }) {
