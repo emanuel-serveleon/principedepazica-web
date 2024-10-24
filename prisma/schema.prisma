@@ -17,6 +17,6 @@ model Predica {
   id         Int      @id @default(autoincrement())
   titulo     String?
   predicador String?
-  fecha      DateTime
+  fecha      DateTime @db.Timestamptz()
   url        String?
 }
