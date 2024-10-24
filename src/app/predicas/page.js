@@ -1,49 +1,28 @@
+import prisma from '../../lib/db';
+
 export const metadata = {
   title: 'Prédicas | Iglesia Cristiana del Príncipe de Paz',
 };
 
-export default function Page() {
+export default async function Page() {
+  const predicas = await prisma.predica.findMany();
+
+  const predicasList = predicas.map((predica) => {
+    return (
+      <PredicaCard
+        title={predica.titulo}
+        speaker={predica.predicador}
+        date={predica.fecha.toLocaleDateString('es-PE')}
+        url={predica.url}
+        key={predica.id}
+      />
+    );
+  });
+
   return (
     <main>
       <h1 className="mt-8 text-center text-3xl font-bold">Prédicas</h1>
-      <div className="mx-auto max-w-[1000px]">
-        <PredicaCard
-          title="Perseverando en un sueño"
-          speaker="Juan Serveleon"
-          date="13-10-2024"
-          url="https://www.youtube.com/watch?v=DY80FqO1kp4"
-        />
-        <PredicaCard
-          title="Esperanza viva"
-          speaker="Juan Serveleon"
-          date="06-10-2024"
-          url="https://www.youtube.com/watch?v=g353jG23kGk"
-        />
-        <PredicaCard
-          title="Todo es tuyo"
-          speaker="Juan Serveleon"
-          date="29-09-2024"
-          url="https://www.youtube.com/watch?v=14AGMUNcsNg"
-        />
-        <PredicaCard
-          title="Crisis de fe"
-          speaker="Juan Serveleon"
-          date="22-09-2024"
-          url="https://www.youtube.com/watch?v=UYMHfL3tvuA"
-        />
-        <PredicaCard
-          title="No te olvides de Jehová"
-          speaker="Juan Serveleon"
-          date="15-09-2024"
-          url="https://www.youtube.com/watch?v=mMIduY1ZXkM"
-        />
-        <PredicaCard
-          title="Como un clavo en lugar firme"
-          speaker="Juan Serveleon"
-          date="08-09-2024"
-          url="https://www.youtube.com/watch?v=7JToJPE1eAc"
-        />
-      </div>
+      <div className="mx-auto max-w-[1000px]">{predicasList}</div>
     </main>
   );
 }
