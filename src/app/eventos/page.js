@@ -1,11 +1,13 @@
 const eventos = [
   {
+    id: 1,
     titulo: 'Festival para la Familia',
     fecha: '01/11/2024',
     lugar: 'Centro Villa Real',
     lugarUrl: 'https://maps.app.goo.gl/gVQuvh3StQvLkDBc7',
   },
   {
+    id: 2,
     titulo: 'Campamento 2025: Camino a la Victoria',
     fecha: '01/01/2025 - 03/01/2025',
     lugar: 'Playa Lurinchincha, Chincha',
@@ -14,7 +16,7 @@ const eventos = [
 
 export default function Page() {
   const eventosList = eventos.map((evento) => {
-    return <EventoCard evento={evento} />;
+    return <EventoCard evento={evento} key={evento.id} />;
   });
 
   return (
