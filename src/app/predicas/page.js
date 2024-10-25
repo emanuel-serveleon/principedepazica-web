@@ -35,7 +35,7 @@ export default async function Page({ searchParams }) {
   });
 
   return (
-    <main>
+    <>
       <h1 className="mt-8 text-center text-3xl font-bold">Prédicas</h1>
       <div className="mx-auto max-w-[1000px]">{predicasList}</div>
       <Pagination
@@ -43,7 +43,7 @@ export default async function Page({ searchParams }) {
         current={currentPage}
         href={'/predicas?page='}
       />
-    </main>
+    </>
   );
 }
 
