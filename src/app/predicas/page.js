@@ -7,7 +7,11 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const predicas = await prisma.predica.findMany();
+  const predicas = await prisma.predica.findMany({
+    orderBy: {
+      fecha: 'desc',
+    },
+  });
 
   const predicasList = predicas.map((predica) => {
     return (
