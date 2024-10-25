@@ -6,8 +6,13 @@ export const metadata = {
   title: 'Prédicas | Iglesia Cristiana del Príncipe de Paz',
 };
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
+  const itemsPerPage = 10;
+  const currentPage = searchParams.page ?? 1;
+
   const predicas = await prisma.predica.findMany({
+    take: itemsPerPage,
+    skip: itemsPerPage * (currentPage - 1),
     orderBy: {
       fecha: 'desc',
     },
