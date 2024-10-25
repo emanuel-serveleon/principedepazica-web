@@ -1,4 +1,5 @@
 import prisma from '../../lib/db';
+import Pagination from '../components/Pagination';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,6 +10,9 @@ export const metadata = {
 export default async function Page({ searchParams }) {
   const itemsPerPage = 10;
   const currentPage = searchParams.page ?? 1;
+
+  const predicasCount = await prisma.predica.count();
+  const pagesCount = Math.ceil(predicasCount / itemsPerPage);
 
   const predicas = await prisma.predica.findMany({
     take: itemsPerPage,
@@ -34,6 +38,11 @@ export default async function Page({ searchParams }) {
     <main>
       <h1 className="mt-8 text-center text-3xl font-bold">Prédicas</h1>
       <div className="mx-auto max-w-[1000px]">{predicasList}</div>
+      <Pagination
+        total={pagesCount}
+        current={currentPage}
+        href={'/predicas?page='}
+      />
     </main>
   );
 }
