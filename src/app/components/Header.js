@@ -18,6 +18,7 @@ export default function Header() {
         <ul className="flex items-center">
           <NavLink href="/" name="Inicio" />
           <NavLink href="/predicas" name="Predicas" />
+          <NavLink href="/eventos" name="Eventos" />
         </ul>
       </nav>
     </header>
