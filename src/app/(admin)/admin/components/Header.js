@@ -6,6 +6,7 @@ export default function Header() {
   return (
     <header>
       <Link href="/admin">Inicio</Link>
+      <Link href="/admin/predicas">Prédicas</Link>
       <form
         action={async () => {
           'use server';
