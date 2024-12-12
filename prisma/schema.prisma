@@ -21,3 +21,17 @@ model Predica {
   fecha      DateTime @db.Timestamptz()
   url        String?
 }
+
+model Evento {
+  id       Int        @id @default(autoincrement())
+  titulo   String?
+  fecha    DateTime[] @db.Timestamptz()
+  lugar    String?
+  lugarUrl String?
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+}
