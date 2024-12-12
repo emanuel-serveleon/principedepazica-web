@@ -7,7 +7,8 @@ export const metadata = {
   title: 'Prédicas | Iglesia Cristiana del Príncipe de Paz',
 };
 
-export default async function Page({ searchParams }) {
+export default async function Page(props) {
+  const searchParams = await props.searchParams;
   const itemsPerPage = 10;
   const currentPage = searchParams.page ?? 1;
 
