@@ -9,7 +9,7 @@ export default async function Page() {
 
   const predicasTable = predicas.map((predica) => {
     return (
-      <tr>
+      <tr key={predica.id}>
         <td>{predica.id}</td>
         <td>{predica.titulo}</td>
         <td>{predica.predicador}</td>
