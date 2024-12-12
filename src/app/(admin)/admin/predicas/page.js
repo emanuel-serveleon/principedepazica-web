@@ -19,9 +19,39 @@ export default async function Page() {
     );
   });
 
+  const createPredica = async (formData) => {
+    'use server';
+
+    const predica = await prisma.predica.create({
+      data: {
+        titulo: formData.get('titulo'),
+        predicador: formData.get('predicador'),
+        fecha: new Date(formData.get('fecha') + 'T05:00:00.000Z'),
+        url: formData.get('url'),
+      },
+    });
+  };
+
   return (
     <div>
       <h1>Prédicas</h1>
+
+      <form action={createPredica}>
+        <label htmlFor="titulo">Título</label>
+        <input type="text" name="titulo" />
+
+        <label htmlFor="predicador">Predicador</label>
+        <input type="text" name="predicador" />
+
+        <label htmlFor="fecha">Fecha</label>
+        <input type="date" name="fecha" />
+
+        <label htmlFor="url">URL</label>
+        <input type="text" name="url" />
+
+        <button>Añadir</button>
+      </form>
+
       <table>
         <thead>
           <tr>
