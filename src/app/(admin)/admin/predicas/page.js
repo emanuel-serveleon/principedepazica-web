@@ -8,6 +8,18 @@ export default async function Page() {
     },
   });
 
+  const deletePredica = async (formData) => {
+    'use server';
+
+    const deletedPredica = await prisma.predica.delete({
+      where: {
+        id: +formData.get('id'),
+      },
+    });
+
+    revalidatePath('/admin/predicas');
+  };
+
   const predicasTable = predicas.map((predica) => {
     return (
       <tr key={predica.id}>
@@ -16,6 +28,13 @@ export default async function Page() {
         <td>{predica.predicador}</td>
         <td>{predica.fecha.toLocaleDateString('es-PE')}</td>
         <td>{predica.url}</td>
+
+        <td>
+          <form action={deletePredica}>
+            <input type="hidden" name="id" value={predica.id} />
+            <button>Borrar</button>
+          </form>
+        </td>
       </tr>
     );
   });
@@ -63,6 +82,7 @@ export default async function Page() {
             <th>PREDICADOR</th>
             <th>FECHA</th>
             <th>URL</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{predicasTable}</tbody>
