@@ -1,5 +1,6 @@
-import prisma from '../../lib/db';
-import Pagination from '../components/Pagination';
+import prisma from '@/lib/db';
+
+import Pagination from '@/app/components/Pagination';
 
 export const dynamic = 'force-dynamic';
 

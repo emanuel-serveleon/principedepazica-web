@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'Eventos | Iglesia Cristiana del Príncipe de Paz',
+};
+
 const eventos = [
   {
     id: 1,

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../assets/logo.svg';
+
+import logo from '/public/logo.svg';
 
 export default function Header() {
   return (

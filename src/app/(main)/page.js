@@ -1,8 +1,8 @@
-import img1 from './assets/celebracion.jpg';
-import img2 from './assets/jovenes.jpg';
-import img3 from './assets/escuela.jpg';
-
 import Image from 'next/image';
+
+import img1 from '/public/celebracion.jpg';
+import img2 from '/public/jovenes.jpg';
+import img3 from '/public/escuela.jpg';
 
 export default function Page() {
   return (

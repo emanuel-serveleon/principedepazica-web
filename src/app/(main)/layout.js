@@ -1,7 +1,8 @@
-import './globals.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Credit from './components/Credit';
+import '@/app/globals.css';
+
+import Header from '@/app/(main)/components/Header';
+import Footer from '@/app/(main)/components/Footer';
+import Credit from '@/app/components/Credit';
 
 export const metadata = {
   title: 'Iglesia Cristiana del Príncipe de Paz',
