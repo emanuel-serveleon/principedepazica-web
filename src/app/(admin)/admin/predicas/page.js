@@ -8,6 +8,21 @@ export default async function Page() {
     },
   });
 
+  const createPredica = async (formData) => {
+    'use server';
+
+    const createdPredica = await prisma.predica.create({
+      data: {
+        titulo: formData.get('titulo'),
+        predicador: formData.get('predicador'),
+        fecha: new Date(formData.get('fecha') + 'T05:00:00.000Z'),
+        url: formData.get('url'),
+      },
+    });
+
+    revalidatePath('/admin/predicas');
+  };
+
   const deletePredica = async (formData) => {
     'use server';
 
@@ -38,21 +53,6 @@ export default async function Page() {
       </tr>
     );
   });
-
-  const createPredica = async (formData) => {
-    'use server';
-
-    const predica = await prisma.predica.create({
-      data: {
-        titulo: formData.get('titulo'),
-        predicador: formData.get('predicador'),
-        fecha: new Date(formData.get('fecha') + 'T05:00:00.000Z'),
-        url: formData.get('url'),
-      },
-    });
-
-    revalidatePath('/admin/predicas');
-  };
 
   return (
     <div>
