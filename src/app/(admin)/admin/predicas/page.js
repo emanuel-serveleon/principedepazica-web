@@ -1,4 +1,5 @@
 import prisma from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 
 export default async function Page() {
   const predicas = await prisma.predica.findMany({
