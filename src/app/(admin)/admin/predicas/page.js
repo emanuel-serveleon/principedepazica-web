@@ -30,6 +30,8 @@ export default async function Page() {
         url: formData.get('url'),
       },
     });
+
+    revalidatePath('/admin/predicas');
   };
 
   return (
